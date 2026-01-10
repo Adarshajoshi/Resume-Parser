@@ -1,0 +1,8 @@
+Python
+Java
+SQL
+Machine Learning
+NLP
+Deep Learning
+Docker
+AWS

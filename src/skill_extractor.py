@@ -1,0 +1,19 @@
+import spacy
+from spacy.matcher import PhraseMatcher
+
+nlp=spacy.load("en_core_web_sm")
+
+def load_skills(path="data/skills/skills.txt"):
+    with open(path,"r") as f:
+        return [line.strip() for line in f.readlines()]
+    
+def extract_skills(text:str):
+    skills=load_skills()
+    matcher=PhraseMatcher(nlp.vocab,attr="LOWER")
+    patterns=[nlp(skill) for skill in skills]
+    matcher.add("SkillMatcher",patterns)
+
+    doc=nlp(text)
+    matches=matcher(doc)   
+
+    return list(set([doc[start:end].text for _,start,end in matches]))

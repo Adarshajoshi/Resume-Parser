@@ -6,3 +6,7 @@ NLP
 Deep Learning
 Docker
 AWS
+python
+machine learning|ml
+natural language processing|nlp
+deep learning|dl

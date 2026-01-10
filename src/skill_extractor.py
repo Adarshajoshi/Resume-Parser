@@ -4,8 +4,13 @@ from spacy.matcher import PhraseMatcher
 nlp=spacy.load("en_core_web_sm")
 
 def load_skills(path="data/skills/skills.txt"):
+    skills={}
     with open(path,"r") as f:
-        return [line.strip() for line in f.readlines()]
+        for line in f:
+            variants=line.strip().split("|")
+            for v in variants:
+                skills[v.strip().lower()]=True
+        return skills
     
 def extract_skills(text:str):
     skills=load_skills()

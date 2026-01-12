@@ -1,2 +1,4 @@
 pypdf
 streamlit
+rake_nltk
+nltk
